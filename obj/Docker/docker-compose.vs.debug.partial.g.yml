@@ -1,0 +1,20 @@
+version: '3.4'
+
+services:
+  testcoredocker:
+    image: testcoredocker:dev
+    build:
+      target: base
+    environment:
+      - DOTNET_USE_POLLING_FILE_WATCHER=1
+      #- NUGET_FALLBACK_PACKAGES=$container_paths_to_fallback_packages_testcoredocker$
+    volumes:
+      - C:\Users\phillip.vetter\Documents\Visual Studio 2017\Projects\TestCoreDocker\GCloudNetCore\TestCoreDocker:/app
+      - C:\Users\phillip.vetter\vsdbg\vs2017u5:/remote_debugger:ro
+#$nuget_volume_mapping_testcoredocker$
+    entrypoint: tail -f /dev/null
+    labels:
+      com.microsoft.visualstudio.debuggee.program: "dotnet"
+      #com.microsoft.visualstudio.debuggee.arguments: " $debuggee_arguments_probing_paths_testcoredocker$ bin/Debug/netcoreapp2.0/TestCoreDocker.dll"
+      com.microsoft.visualstudio.debuggee.workingdirectory: "/app"
+      com.microsoft.visualstudio.debuggee.killprogram: "/bin/bash -c \"if PID=$$(pidof -x dotnet); then kill $$PID; fi\""

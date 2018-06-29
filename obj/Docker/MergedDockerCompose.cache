@@ -1,0 +1,11 @@
+services:
+  testcoredocker:
+    build:
+      context: C:\Users\phillip.vetter\Documents\Visual Studio 2017\Projects\TestCoreDocker\GCloudNetCore
+      dockerfile: TestCoreDocker/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+    image: testcoredocker
+    ports:
+    - target: 80
+version: '3.4'
