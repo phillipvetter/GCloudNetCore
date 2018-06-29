@@ -13,5 +13,6 @@ FROM build AS publish
 RUN dotnet publish TestCoreDocker/TestCoreDocker.csproj -c Release -o app
 
 FROM base AS final
-COPY --from=publish app .
+WORKDIR /app
+COPY --from=publish /app .
 ENTRYPOINT ["dotnet", "TestCoreDocker.dll"]
