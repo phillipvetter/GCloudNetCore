@@ -4,7 +4,7 @@ EXPOSE 80
 
 FROM microsoft/aspnetcore-build:2.0 AS build
 WORKDIR ~GCloudNetCore/TestCoreDocker/
-COPY TestCoreDocker.csproj TestCoreDocker/
+COPY ~GCloudNetCore/TestCoreDocker/TestCoreDocker.csproj TestCoreDocker/
 RUN dotnet restore TestCoreDocker.csproj
 COPY . .
 WORKDIR cd ~GCloudNetCore/TestCoreDocker/
