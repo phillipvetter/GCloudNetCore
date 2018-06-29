@@ -1,1 +1,2 @@
 C:\Users\phillip.vetter\documents\visual studio 2017\Projects\TestCoreDocker\obj\Debug\docker-compose.dcproj.CoreCompileInputs.cache
+C:\Users\phillip.vetter\Documents\Visual Studio 2017\Projects\TestCoreDocker\GCloudNetCore\obj\Debug\docker-compose.dcproj.CoreCompileInputs.cache
