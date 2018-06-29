@@ -14,5 +14,5 @@ RUN dotnet publish TestCoreDocker/TestCoreDocker.csproj -c Release -o app
 
 FROM base AS final
 WORKDIR ~GCloudNetCore/TestCoreDocker
-COPY --from=publish ./GCloudNetCore/TestCoreDocker/app .
+COPY --from=publish ~/GCloudNetCore/TestCoreDocker/app .
 ENTRYPOINT ["dotnet", "TestCoreDocker.dll"]
