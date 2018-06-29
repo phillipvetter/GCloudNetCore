@@ -6,7 +6,7 @@ FROM microsoft/aspnetcore-build:2.0 AS build
 WORKDIR ~GCloudNetCore/TestCoreDocker/
 COPY TestCoreDocker.csproj TestCoreDocker/
 RUN dotnet restore TestCoreDocker/TestCoreDocker.csproj
-COPY . .
+COPY . TestCoreDocker/
 RUN dotnet build TestCoreDocker/TestCoreDocker.csproj -c Release -o app
 
 FROM build AS publish
