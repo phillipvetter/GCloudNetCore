@@ -10,7 +10,7 @@ COPY . TestCoreDocker/
 RUN dotnet build TestCoreDocker/TestCoreDocker.csproj -c Release -o app
 
 FROM build AS publish
-RUN dotnet publish TestCoreDocker.csproj -c Release -o app
+RUN dotnet publish TestCoreDocker/TestCoreDocker.csproj -c Release -o app
 
 FROM base AS final
 WORKDIR /app
