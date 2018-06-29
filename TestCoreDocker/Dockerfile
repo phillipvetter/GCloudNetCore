@@ -7,10 +7,11 @@ WORKDIR ~GCloudNetCore/TestCoreDocker/
 COPY TestCoreDocker.csproj TestCoreDocker/
 RUN dotnet restore TestCoreDocker/TestCoreDocker.csproj
 COPY . .
-RUN dotnet build TestCoreDocker/TestCoreDocker.csproj -c Release -o /app
+WORKDIR ~GCloudNetCore/TestCoreDocker/
+RUN dotnet build TestCoreDocker.csproj -c Release -o app
 
 FROM build AS publish
-RUN dotnet publish TestCoreDocker.csproj -c Release -o /app
+RUN dotnet publish TestCoreDocker.csproj -c Release -o app
 
 FROM base AS final
 WORKDIR /app
